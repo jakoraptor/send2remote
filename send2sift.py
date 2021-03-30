@@ -5,7 +5,6 @@ from client import RemoteClient
 from os import walk, path
 from typing import List
 
-remote_path = "/tmp/farts.txt"
 local_file_directory = "/tmp/bloops/"
 
 
@@ -14,14 +13,15 @@ class SendToSift(Responder):
         Responder.__init__(self)
         self.host = self.get_param("config.host", "192.168.135.133", "no host provided")
         self.username = self.get_param('config.username', None, 'Remote host username is missing')
-        # password = Responder.get_param('config.password', None, None)
+        # self.password = self.get_param('config.password', None, None)
         self.ssh_key_filepath = self.get_param('config.ssh_key_filepath', None, 'Location of local SSH key required')
+        self.remote_path = self.get_param('config.remote_path', '/home/sansforensics/suspect', 'Remote path location required')
 
     def run(self):
         Responder.run(self)
         if self.data_type == "file":
             """Initialise remote host client and execute actions."""
-            remote = RemoteClient(self.host, self.username, self.ssh_key_filepath, remote_path)
+            remote = RemoteClient(self.host, self.username, self.ssh_key_filepath, self.remote_path)
             upload_files_to_remote(remote)
         else:
             self.error("invalid data type!")
