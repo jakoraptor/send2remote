@@ -1,0 +1,35 @@
+{
+  "name": "Send2Sift",
+  "version": "0.2",
+  "author": "Jakoraptor",
+  "url": "N/A",
+  "license": "AGPL-V3",
+  "description": "Send a file from TheHive to Sift \"cases\" directory",
+  "dataTypeList": ["thehive:case_artifact","file"],
+  "command": "Send2Sift/send2sift.py",
+  "baseConfig": "Send2Sift",
+  "configurationItems": [
+    {
+      "name": "host",
+      "description": "IP of Sift box",
+      "type": "string",
+      "multi": false,
+      "required": true
+    },
+    {
+      "name": "username",
+      "description": "Username of sift box",
+      "type": "string",
+      "multi": false,
+      "required": true,
+      "defaultValue": "sansforensics"
+    },
+    {
+      "name": "ssh_key_filepath",
+      "description": "path of ssh key",
+      "type": "string",
+      "multi": false,
+      "required": true
+    }
+  ]
+}
