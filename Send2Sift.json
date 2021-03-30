@@ -1,10 +1,10 @@
 {
   "name": "Send2Sift",
-  "version": "0.2",
+  "version": "0.3",
   "author": "Jakoraptor",
-  "url": "N/A",
+  "url": "https://github.com/jakoraptor/send2sift",
   "license": "AGPL-V3",
-  "description": "Send a file from TheHive to Sift \"cases\" directory",
+  "description": "Send a file from TheHive to Sift",
   "dataTypeList": ["thehive:case_artifact","file"],
   "command": "Send2Sift/send2sift.py",
   "baseConfig": "Send2Sift",
@@ -27,6 +27,13 @@
     {
       "name": "ssh_key_filepath",
       "description": "path of ssh key",
+      "type": "string",
+      "multi": false,
+      "required": true
+    },
+    {
+      "name": "remote_path",
+      "description": "remote path you would like to push the file to",
       "type": "string",
       "multi": false,
       "required": true
