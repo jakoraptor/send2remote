@@ -13,7 +13,7 @@ class SendToSift(Responder):
     def __init__(self):
         Responder.__init__(self)
         self.host = self.get_param("config.host", "192.168.135.133", "no host provided")
-        self.username = self.get_param('config.user', None, 'Remote host username is missing')
+        self.username = self.get_param('config.username', None, 'Remote host username is missing')
         # password = Responder.get_param('config.password', None, None)
         self.ssh_key_filepath = self.get_param('config.ssh_key_filepath', None, 'Location of local SSH key required')
 
