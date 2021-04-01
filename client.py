@@ -1,9 +1,7 @@
 #!/usr/bin/python3
-from typing import List
 from paramiko import SSHClient, AutoAddPolicy, RSAKey
 from paramiko.auth_handler import AuthenticationException, SSHException
-from scp import SCPClient, SCPException
-from log import LOGGER
+from scp import SCPClient
 
 
 class RemoteClient:
@@ -40,7 +38,7 @@ class RemoteClient:
             )
             return client
         except AuthenticationException as e:
-            LOGGER.error(f"Authentication failed: did you remember to create an SSH key? {e}")
+            print(f"Authentication failed: did you remember to create an SSH key? {e}")
             raise e
 
     @property
@@ -52,10 +50,10 @@ class RemoteClient:
         """Fetch locally stored SSH key."""
         try:
             self.ssh_key = RSAKey.from_private_key_file(self.ssh_key_filepath)
-            LOGGER.info(f"Found SSH key at self {self.ssh_key_filepath}")
+            print(f"Found SSH key at self {self.ssh_key_filepath}")
             return self.ssh_key
         except SSHException as e:
-            LOGGER.error(e)
+            self.error(e)
 
     def disconnect(self):
         """Close ssh connection."""
@@ -63,16 +61,3 @@ class RemoteClient:
             self.client.close()
         if self.scp:
             self.scp.close()
-
-    def bulk_upload(self, files):
-        """"
-        Upload multiple bloops to a remote directory.
-
-        :param files: List of local bloops to be uploaded.
-        :type files: List[str]
-        """
-        try:
-            self.scp.put(files, remote_path=self.remote_path)
-            LOGGER.info(f"Finished uploading {len(files)} files to {self.remote_path} on {self.host}")
-        except SCPException as e:
-            raise e
