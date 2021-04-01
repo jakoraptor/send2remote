@@ -21,8 +21,14 @@
       "description": "Username of sift box",
       "type": "string",
       "multi": false,
-      "required": true,
-      "defaultValue": "sansforensics"
+      "required": true
+    },
+    {
+      "name": "passphrase",
+      "description": "Passphrase of ssh key",
+      "type": "string",
+      "multi": false,
+      "required": false
     },
     {
       "name": "ssh_key_filepath",
@@ -30,6 +36,7 @@
       "type": "string",
       "multi": false,
       "required": true
+      "defaultValue": "/home/sansforensics/suspect"
     },
     {
       "name": "remote_path",
@@ -40,3 +47,4 @@
     }
   ]
 }
+
