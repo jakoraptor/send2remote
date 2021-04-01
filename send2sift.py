@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 from cortexutils.analyzer import Analyzer
 from client import RemoteClient
+from os.path import basename
 
 
 class SendToSift(Analyzer):
@@ -17,8 +18,9 @@ class SendToSift(Analyzer):
         if self.data_type == "file":
             """Initialise remote host client and execute actions."""
             filepath = self.get_param('file', None, 'file is missing')
+            filename = self.get_param('filename' basename(filepath))
             remote = RemoteClient(self.host, self.username, self.ssh_key_filepath, self.remote_path)
-            remote.scp.put(filepath, remote_path=self.remote_path)
+            remote.scp.put(filepath, remote_path=self.remote_path + '/' + filename)
         else:
             self.error("invalid data type!")
 
