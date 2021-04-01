@@ -22,7 +22,7 @@ class SendToSift(Analyzer):
             if self.data_type == "file":
                 """Initialise remote host client and execute actions."""
                 filepath = self.get_param('file', None, 'file is missing')
-                filename = self.get_param('filename' basename(filepath)).replace(" ", "_")
+                filename = self.get_param('filename', basename(filepath)).replace(" ", "_")
                 remote = RemoteClient(self.host, self.username, self.ssh_key_filepath, self.remote_path)
                 remote.scp.put(filepath, remote_path=f'{self.remote_path}/{filename}_{datetime.now()})
                 self.report({'success': 'file transferred!'})
