@@ -21,6 +21,7 @@ class SendToSift(Analyzer):
             filename = self.get_param('filename' basename(filepath))
             remote = RemoteClient(self.host, self.username, self.ssh_key_filepath, self.remote_path)
             remote.scp.put(filepath, remote_path=self.remote_path + '/' + filename)
+            self.report({'success': 'file transferred!'})
         else:
             self.error("invalid data type!")
 
