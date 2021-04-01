@@ -31,11 +31,18 @@
       "required": false
     },
     {
+      "name": "passphrase",
+      "description": "Passphrase of ssh key",
+      "type": "string",
+      "multi": false,
+      "required": false
+    },
+    {
       "name": "ssh_key_filepath",
       "description": "path of ssh key",
       "type": "string",
       "multi": false,
-      "required": true
+      "required": true,
       "defaultValue": "/home/sansforensics/suspect"
     },
     {
