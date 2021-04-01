@@ -11,13 +11,13 @@ class RemoteClient:
             self,
             host: str,
             user: str,
-            password: str,
+            passphrase: str,
             ssh_key_filepath: str,
             remote_path: str,
     ):
         self.host = host
         self.user = user
-        self.password = password
+        self.passphrase = passphrase
         self.ssh_key_filepath = ssh_key_filepath
         self.remote_path = remote_path
         self.client = None
@@ -32,7 +32,7 @@ class RemoteClient:
             client.connect(
                 self.host,
                 username=self.user,
-                password=self.password,
+                passphrase=self.passphrase,
                 key_filename=self.ssh_key_filepath,
                 timeout=5000,
             )
