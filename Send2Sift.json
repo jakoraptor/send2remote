@@ -6,7 +6,7 @@
   "license": "AGPL-V3",
   "description": "Send a file from TheHive to Sift",
   "dataTypeList": ["file"],
-  "command": "Send2Sift/send2sift.py",
+  "command": "send2sift/send2sift.py",
   "baseConfig": "Send2Sift",
   "configurationItems": [
     {
