@@ -1,11 +1,11 @@
 {
   "name": "Send2Sift",
-  "version": "0.3",
+  "version": "0.4",
   "author": "Jakoraptor",
   "url": "https://github.com/jakoraptor/send2sift",
   "license": "AGPL-V3",
   "description": "Send a file from TheHive to Sift",
-  "dataTypeList": ["thehive:case_artifact","file"],
+  "dataTypeList": ["file"],
   "command": "Send2Sift/send2sift.py",
   "baseConfig": "Send2Sift",
   "configurationItems": [
