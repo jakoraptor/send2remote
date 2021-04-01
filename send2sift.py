@@ -18,7 +18,7 @@ class SendToSift(Analyzer):
             """Initialise remote host client and execute actions."""
             filepath = self.get_param('file', None, 'file is missing')
             remote = RemoteClient(self.host, self.username, self.ssh_key_filepath, self.remote_path)
-            remote.put(filepath, remote_path=self.remote_path)
+            remote.scp.put(filepath, remote_path=self.remote_path)
         else:
             self.error("invalid data type!")
 
