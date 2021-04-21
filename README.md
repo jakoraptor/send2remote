@@ -1,5 +1,5 @@
-# send2sift
-cortex analyzer to send a file from the hive to another server, in this case sift workstation. (Any other OS could be used in theory but analyser tested only to Sift)
+# send2remote
+cortex analyzer to send a file from the hive to a dedicated malware analysis box for extended manual analysis
 
 credit to https://github.com/hackersandslackers/paramiko-tutorial for the bulk of the scripting
 
@@ -9,5 +9,6 @@ credit to https://github.com/hackersandslackers/paramiko-tutorial for the bulk o
 * you will also need another machine to send the files to, i.e. sift workstation: https://digital-forensics.sans.org/community/downloads
 * clone the files to the analyzer directory in the hive, i.e. <code>/opt/Cortex-Analyzers/analyzers</code>
 * cortex needs to be able to connect to the sift box over ssh, so make sure cortex has shared it's public key with sift. https://www.ssh.com/ssh/keygen/
-* configure analyzer in cortex
-* test analyzer 
+* make sure the local ssh key you just created is owned/readable by cortex user, i.e. <code>chown -R cortex:cortex cortex</code>
+* configure analyzer in cortex using gui
+* (optional) test analyzer works from within cortex gui
