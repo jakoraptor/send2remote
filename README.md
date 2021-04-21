@@ -10,6 +10,6 @@ credit to https://github.com/hackersandslackers/paramiko-tutorial for the bulk o
 * clone the files to the analyzer directory in the hive, i.e. <code>/opt/Cortex-Analyzers/analyzers</code>
 * make the send2remote.py file executable - <code>chmod +x send2remote.py</code>
 * cortex needs to be able to connect to the sift box over ssh, so make sure cortex has shared it's public key with sift. https://www.ssh.com/ssh/keygen/
-* make sure the local ssh key you just created is owned/readable by cortex user - <code>chown -R cortex:cortex cortex</code>
+* make sure the local ssh key you just created is owned/readable by cortex user - <code>chown cortex:cortex id_rsa</code>
 * configure analyzer in cortex using gui
 * (optional) test analyzer works from within cortex gui
