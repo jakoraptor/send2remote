@@ -21,8 +21,14 @@
       "description": "Username of sift box",
       "type": "string",
       "multi": false,
-      "required": true,
-      "defaultValue": "sansforensics"
+      "required": true
+    },
+    {
+      "name": "passphrase",
+      "description": "Passphrase of ssh key",
+      "type": "string",
+      "multi": false,
+      "required": false
     },
     {
       "name": "passphrase",
@@ -48,3 +54,4 @@
     }
   ]
 }
+
