@@ -1,7 +1,7 @@
 # send2remote
 cortex analyzer to send a file from the hive to a dedicated malware analysis box for extended manual analysis
 
-credit to https://github.com/hackersandslackers/paramiko-tutorial for the bulk of the scripting
+credit to https://github.com/hackersandslackers/paramiko-tutorial for the scp parts
 
 ## Usage
 
