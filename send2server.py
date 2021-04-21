@@ -7,7 +7,7 @@ from scp import SCPException
 from datetime import datetime
 
 
-class SendToSift(Analyzer):
+class SendToServer(Analyzer):
     def __init__(self):
         Analyzer.__init__(self)
         self.host = self.get_param("config.host", None, "no host provided")
@@ -39,4 +39,4 @@ class SendToSift(Analyzer):
             
             
 if __name__ == "__main__":
-    SendToSift().run()
+    SendToServer().run()
