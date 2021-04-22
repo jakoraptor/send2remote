@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 from cortexutils.analyzer import Analyzer
 from client import RemoteClient
 from os.path import basename
