@@ -23,8 +23,10 @@ class SendToRemote(Analyzer):
                 """Initialise remote host client and execute actions."""
                 filepath = self.get_param('file', None, 'file is missing')
                 filename = self.get_param('filename', basename(filepath)).replace(" ", "_")
+                x = datetime.now()
+                
                 remote = RemoteClient(self.host, self.username, self.passphrase, self.ssh_key_filepath, self.remote_path)
-                remote.scp.put(filepath, remote_path=f'{self.remote_path}/{filename}_{datetime.now()}')
+                remote.scp.put(filepath, remote_path=f'{self.remote_path}/{filename}_{x.strftime("%Y%m%d%H%M%S%f")}')
                 self.report({'success': 'file transferred!'})
             else:
                 self.error("invalid data type!")
